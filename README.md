@@ -12,7 +12,7 @@ The <italic>.exe</italic> and <italic>.msi</italic> files are available in the r
 
 ## Author
 
-##### João Vitor Sobral
+#### João Vitor Sobral
 
 Github: @sobraljvss <br>
 Contact: sobraljvss@gmail.com
