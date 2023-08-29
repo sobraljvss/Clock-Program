@@ -1,27 +1,33 @@
-let datetime = new Date();
-let hours = datetime.getHours();
+let datetime, hours, selected_daypart, conditions
 
-const BODY = document.body;
-const GREETINGS = document.getElementById('greetings');
-const TIME = document.getElementById('time');
-const DATE = document.getElementById('date');
+// possible pairs of greetings and arts
+const STYLES = [{phrase: 'Good Morning!', art: 'morning'},
+                {phrase: 'Good Afternoon!', art: 'afternoon'},
+                {phrase: 'Good Evening!', art: 'evening'},
+                {phrase: 'Good Night!', art: 'night'}]
 
-const DAYPARTS = new Map([
-  [[hours >= 4 && hours < 12], {phrase: 'Good Morning!', art: 'morning.png'}],
-  [[hours >= 12 && hours < 17], {phrase: 'Good Afternoon!', art: 'afternoon.png'}],
-  [[hours >= 17 && hours < 21], {phrase: 'Good Evening!', art: 'evening.png'}],
-  [[hours >= 21 || hours < 4], {phrase: 'Good Night!', art: 'night.png'}]
-]);
-
-let clock = setInterval(() => {
-  TIME.textContent = `${hours.toLocaleString('en', {minimumIntegerDigits: 2})}:${datetime.getMinutes().toLocaleString('en', {minimumIntegerDigits: 2})}:${datetime.getSeconds().toLocaleString('en', {minimumIntegerDigits: 2})}`;
-  DATE.textContent = `${datetime.toLocaleString('en', {month: 'long'})} ${datetime.getDate()}, ${datetime.getFullYear()} (${datetime.toLocaleString('en', {weekday: 'short'})})`
-  DAYPARTS.forEach((styles, condition) => {
-    if (condition[0]){
-      BODY.style.backgroundImage = `url('media/${styles.art}')`;
-      GREETINGS.textContent = styles.phrase;
-    }
-  });
+function update() {
+  // time and date in a certain moment
   datetime = new Date();
   hours = datetime.getHours();
-}, 1000);
+
+  // conditions for each style
+  conditions = [Boolean(hours >= 4 && hours < 12),
+                Boolean(hours >= 12 && hours < 17),
+                Boolean(hours >= 17 && hours < 21),
+                Boolean(hours >= 21 || hours < 4)]
+
+  // displaying date and time
+  document.getElementById('time').textContent = datetime.toLocaleTimeString('en');
+  document.getElementById('date').textContent = `${datetime.toLocaleString('en', {month: 'long'})} ${datetime.getDate()}, ${datetime.getFullYear()} (${datetime.toLocaleString('en', {weekday: 'short'})})`;
+
+  // selecting a pair of greeting and art
+  for (let i = 0; i < conditions.length; i++) {
+    if (conditions[i]){
+      document.getElementById('greetings').textContent = STYLES[i].phrase;
+      document.body.style.backgroundImage = `url(media/${STYLES[i].art}.png)`;
+    }
+  }
+}
+
+let clock = setInterval(update, 1000);

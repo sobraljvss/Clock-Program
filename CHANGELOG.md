@@ -6,15 +6,17 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [1.2] - 2023-08-28
+## [1.2] - 2023-08-29
 
 ### Changed
 
-- Better style
+- Better style (implemented Bootstrap)
+
+## [1.1.1] - 2023-08-28
 
 ### Fixed
 
-- Background and greeting not updating
+- Background and greeting not updating automatically
 
 ## [1.1.0] - 2023-08-27
 
