@@ -1,10 +1,10 @@
-let datetime, hours, selected_daypart, conditions
+var datetime, hours, selected_daypart, conditions
 
 // possible pairs of greetings and arts
-const STYLES = [{phrase: 'Good Morning!', art: 'morning'},
-                {phrase: 'Good Afternoon!', art: 'afternoon'},
-                {phrase: 'Good Evening!', art: 'evening'},
-                {phrase: 'Good Night!', art: 'night'}]
+const STYLES = [{phrase: 'Good Morning!', art: 'morning', pos: '30%'},
+                {phrase: 'Good Afternoon!', art: 'afternoon', pos: '60%'},
+                {phrase: 'Good Evening!', art: 'evening', pos: '30%'},
+                {phrase: 'Good Night!', art: 'night', pos: '60%'}]
 
 function update() {
   // time and date in a certain moment
@@ -18,16 +18,27 @@ function update() {
                 Boolean(hours >= 21 || hours < 4)]
 
   // displaying date and time
-  document.getElementById('time').textContent = datetime.toLocaleTimeString('en');
-  document.getElementById('date').textContent = `${datetime.toLocaleString('en', {month: 'long'})} ${datetime.getDate()}, ${datetime.getFullYear()} (${datetime.toLocaleString('en', {weekday: 'short'})})`;
+  $('#time').text(datetime.toLocaleTimeString('en'));
+  $('#date').text(`${datetime.toLocaleString('en', {month: 'long'})} ${datetime.getDate()}, ${datetime.getFullYear()} (${datetime.toLocaleString('en', {weekday: 'short'})})`);
 
   // selecting a pair of greeting and art
   for (let i = 0; i < conditions.length; i++) {
     if (conditions[i]){
-      document.getElementById('greetings').textContent = STYLES[i].phrase;
-      document.body.style.backgroundImage = `url(media/${STYLES[i].art}.png)`;
+      if ($('#greetings').text() == '') {
+        $('#greetings').text(STYLES[i].phrase);
+        $('#art').css('background-image', `url('images/${STYLES[i].art}.png')`);
+        $('#art').css('background-position', STYLES[i].pos);
+      }
+      else if ($('#greetings').text() != STYLES[i].phrase) {
+        $('#art').fadeOut(1000, () => {
+          $('#greetings').text(STYLES[i].phrase);
+          $('#art').css('background-image', `url('images/${STYLES[i].art}.png')`);
+          $('#art').css('background-position', STYLES[i].pos);
+          $('#art').fadeIn(1000);
+        });
+      } 
     }
   }
 }
 
-let clock = setInterval(update, 1000);
+setInterval(update, 1000);

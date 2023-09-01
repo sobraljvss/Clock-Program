@@ -4,13 +4,15 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
-## [1.2] - 2023-08-29
+## [1.2.0] - 2023-09-01
 
 ### Changed
 
-- Better style (implemented Bootstrap)
+- Media folder now named Images
+- Implemented Bootstrap and jQuery
+- Background position now adapts itself to each art (so it fits well on mobiles)
+- Better style with transition
+- New fonts (with credits)
 
 ## [1.1.1] - 2023-08-28
 
