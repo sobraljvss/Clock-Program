@@ -1,10 +1,14 @@
 # Clock Program
 
-That's a simple web clock program, by which it's possible to know date and time. I've done some simple art representing the current part of day (morning, afternoon, evening and night) on background, as well as a greeting. It's made with HTML, CSS and JavaScript.
+That's a simple web clock program, by which it's possible to know date and time. There are some simple art representing the current part of day (morning, afternoon, evening and night) on background, as well as a greeting. It's made with HTML, CSS and JavaScript.
 
 ## Contributing
 
 Anyone can contribute to it with issues and pull requests, even thought there's not much features to add (it's just a clock with some style).
+
+## Usage
+
+The program can be accessed by downloading all the files and opening index.html in a browser.
 
 ## Author
 
@@ -14,5 +18,7 @@ Github: @sobraljvss <br>
 Contact: sobraljvss@gmail.com
 
 ## Credits
+
+The images were also made by João Vitor Sobral.
 
 Credits to [Tyler Finck](https://fonts.google.com/query=Tyler+Finck), [Adam Jagosz](https://fonts.google.com/query=Adam+Jagosz) and [Kimberly Geswein](https://fonts.google.com/query=Kimberly+Geswein) for the fonts. All of them were taken from [Google Fonts](https://fonts.google.com/).
