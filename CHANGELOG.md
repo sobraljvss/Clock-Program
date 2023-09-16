@@ -16,7 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Changed
 
 - Media folder now named Images
-- Implemented Bootstrap and jQuery
+- Implemented [Bootstrap](https://getbootstrap.com/) and [jQuery](https://jquery.com/)
 - Background position now adapts itself to each art (so it fits well on mobiles)
 - Better style with transition
 - New fonts (with credits)
