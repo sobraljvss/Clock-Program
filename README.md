@@ -2,6 +2,12 @@
 
 That's a simple web clock program, by which it's possible to know date and time. There are some really simple art representing the current part of day (morning, afternoon, evening and night) on background, as well as a greeting. It's made with HTML, CSS and JavaScript.
 
+The background art and the greeting change over time with a fade:
+- 4 AM ~ 12 PM: Morning;
+- 12 PM ~ 5 PM: Afternoon;
+- 5 PM ~ 9 PM: Evening;
+- 9 PM ~ 4 AM: Night;
+
 #### Examples
 
 - PC-like screen:
